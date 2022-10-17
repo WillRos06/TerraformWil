@@ -1,0 +1,37 @@
+version: "3.7"
+
+networks:
+  netwill:
+
+services:
+  web_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: containerwill
+    restart: always
+    ports:
+      - 8050:80
+    networks:
+      - netwill
+    depends_on:
+      - databaseWilliam
+
+  databaseWilliam:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 2181336
+      POSTGRES_USER: williamdel
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - netwill
+
+
+
+volumes:
+  pgdata:
