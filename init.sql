@@ -1,6 +1,6 @@
 CREATE TABLE Comidas(
 numcontrol BIGINT,
-nombre VARCHAR(45),
+nombr6 VARCHAR(45),
 pais VARCHAR(45)
 );
 
